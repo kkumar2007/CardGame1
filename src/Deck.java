@@ -32,15 +32,14 @@ public class Deck
 
     public void shuffle() {
         for (int i = cards.size() - 1; i > 0; i--) {
-            int r = (int) (Math.random() * (i + 1));
+            int random = (int) (Math.random() * (i + 1));
 
-            // Swap cards at indices i and r
+
             Card temp = cards.get(i);
-            cards.set(i, cards.get(r));
-            cards.set(r, temp);
+            cards.set(i, cards.get(random));
+            cards.set(random, temp);
         }
 
-        // Reset cardsLeft to the number of cards in the deck
         cardsLeft = cards.size();
     }
 }

@@ -33,7 +33,16 @@ public class Player {
 
     // Method to add points
     public void addPoints(int pointsToAdd) {
-        this.points += pointsToAdd;
+        if (pointsToAdd == 11) {
+            // Check if adding 11 points would exceed 21, if so, add only 1 point
+            if (this.points + 11 > 21) {
+                this.points += 1;
+            } else {
+                this.points += 11;
+            }
+        } else {
+            this.points += pointsToAdd;
+        }
     }
 
     // Method to add a card to the hand
