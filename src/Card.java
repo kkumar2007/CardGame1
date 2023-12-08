@@ -1,3 +1,7 @@
+//Kavan Kumar
+//CS2
+//Dec 7, 2023
+
 // Represents a playing card
 public class Card {
     // The rank of the card
