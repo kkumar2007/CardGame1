@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 // Represents a deck of playing cards
@@ -11,13 +12,15 @@ public class Deck {
     public Deck(String[] ranks, String[] suits, int[] values) {
         cards = new ArrayList<>();
         cardsLeft = 0;
-
+        int j = 0;
         // Create cards for each rank and suit, add to the deck, and update cardsLeft
         for (String suit : suits) {
             for (int i = 0; i < ranks.length; i++) {
                 String rank = ranks[i];
                 int point = values[i];
-                cards.add(new Card(rank, suit, point));
+                j+=1;
+                String n2 = String.valueOf(j);
+                cards.add(new Card(rank, suit, point, new ImageIcon("Resources/Cards/" + n2 + ".png").getImage()));
                 cardsLeft++;
             }
         }

@@ -1,6 +1,8 @@
 //Kavan Kumar
 //CS2
 //Dec 7, 2023
+import javax.swing.ImageIcon;
+import java.awt.*;
 
 // Represents a playing card
 public class Card {
@@ -10,12 +12,16 @@ public class Card {
     private String suit;
     // The point value of the card
     private int point;
+    private Image image;
+    private final int Y_VAL = 300;
 
     // Constructor to initialize the card with rank, suit, and point
-    public Card(String rank, String suit, int point) {
+    public Card(String rank, String suit, int point, Image image) {
         this.rank = rank;
         this.suit = suit;
         this.point = point;
+        this.image = image;
+
     }
 
     // Getter method to get the rank of the card
@@ -51,5 +57,9 @@ public class Card {
     // toString method to represent the card as a string
     public String toString() {
         return rank + " of " + suit;
+    }
+    public void draw(Graphics g, int x, BlackjackViewer view)
+    {
+        g.drawImage(image, x, Y_VAL, view);
     }
 }

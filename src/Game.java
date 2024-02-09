@@ -11,12 +11,14 @@ public class Game {
     private Player player;
     private Player dealer;
     private Deck deck;
+    private BlackjackViewer window;
+    public static int state = 0;
 
     // Constructor to initialize the game
     public Game() {
         // Create a Scanner for user input
         Scanner scanner = new Scanner(System.in);
-
+        this.window = new BlackjackViewer(this);
         // Prompt user for player name and initialize player, dealer, and deck
         System.out.print("Enter player name: ");
         this.player = new Player(scanner.nextLine());
@@ -86,7 +88,7 @@ public class Game {
                 System.out.println("Blackjack! You win!");
                 return;
             }
-
+            window.repaint();
             System.out.print("Do you want to hit or stand? (h/s): ");
             String choice = scanner.nextLine().toLowerCase();
 
@@ -130,6 +132,16 @@ public class Game {
             System.out.println("Dealer wins!");
         }
     }
+    public int getState()
+    {
+        return state;
+    }
+    public void setState(int number)
+    {
+        state = number;
+    }
+
+
 
     // Main method to create and play the game
     public static void main(String[] args) {
