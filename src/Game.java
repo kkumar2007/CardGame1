@@ -3,9 +3,9 @@ import java.util.Scanner;
 // The main class representing the Blackjack game
 public class Game {
     // Arrays to store ranks, suits, and values of cards
-    private String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-    private String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-    private int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11};  // Ace can be 1 or 11
+    private String[] ranks = {"Ace","2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",};
+    private String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs",};
+    private int[] values = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};  // Ace can be 1 or 11
 
     // Players and deck of cards
     private Player player;
@@ -18,12 +18,17 @@ public class Game {
     public Game() {
         // Create a Scanner for user input
         Scanner scanner = new Scanner(System.in);
-        this.window = new BlackjackViewer(this);
         // Prompt user for player name and initialize player, dealer, and deck
         System.out.print("Enter player name: ");
         this.player = new Player(scanner.nextLine());
+        state = 1;
         this.dealer = new Player("Dealer");
         this.deck = new Deck(ranks, suits, values);
+        this.window = new BlackjackViewer(this);
+    }
+    public Player getPlayer()
+    {
+        return player;
     }
 
     // Method to print game instructions
@@ -36,26 +41,40 @@ public class Game {
 
     // Method to start and play the game
     public void playGame() {
+        boolean start = false;
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Blackjack, " + player.getName() + "!");
-
         // Print game instructions
-        printInstructions();
+        while (true) {
+            System.out.println("Ready to play? (Y/N): ");
+            String start1 = scanner.nextLine();
+            if (start1.equalsIgnoreCase("Y")) {
+                start = true;
+                break;
+            } else if (start1.equalsIgnoreCase("N")) {
+                System.out.println("Thank you for considering Blackjack. Goodbye!");
+                return;
+            } else {
+                System.out.println("Invalid input. Please enter 'Y' or 'N'.");
+            }
+        }
 
-        // Initial deal
-        dealCard(player);
-        dealCard(dealer);
-        dealCard(player);
-        dealCard(dealer);
 
-        // Player's turn
-        playerTurn();
+            // Initial deal
+            dealCard(player);
+            dealCard(dealer);
+            dealCard(player);
+            dealCard(dealer);
 
-        // Dealer's turn
-        dealerTurn();
+            // Player's turn
+            playerTurn();
 
-        // Determine the winner
-        determineWinner();
-    }
+            // Dealer's turn
+            dealerTurn();
+
+            // Determine the winner
+            determineWinner();
+        }
 
     // Method to deal a card to a player and update points
     public void dealCard(Player player) {

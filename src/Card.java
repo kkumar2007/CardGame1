@@ -28,6 +28,9 @@ public class Card {
     public String getRank() {
         return rank;
     }
+    public Image getImage() {
+        return image;
+    }
 
     // Setter method to set the rank of the card
     public void setRank(String rank) {

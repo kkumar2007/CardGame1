@@ -12,15 +12,15 @@ public class Deck {
     public Deck(String[] ranks, String[] suits, int[] values) {
         cards = new ArrayList<>();
         cardsLeft = 0;
-        int j = 0;
         // Create cards for each rank and suit, add to the deck, and update cardsLeft
-        for (String suit : suits) {
-            for (int i = 0; i < ranks.length; i++) {
+        for (int i = 0; i < ranks.length; i++) {
+            int j = 1;
+            for (String suit: suits) {
                 String rank = ranks[i];
                 int point = values[i];
-                j+=1;
-                String n2 = String.valueOf(j);
-                cards.add(new Card(rank, suit, point, new ImageIcon("Resources/Cards/" + n2 + ".png").getImage()));
+                int cardNumber = (suits.length * i) + getSuitIndex(suits, suit) + 1;
+                ImageIcon cardImage = new ImageIcon("Resources/Cards/" + cardNumber + ".png");
+                cards.add(new Card(rank, suit, point, cardImage.getImage()));
                 cardsLeft++;
             }
         }
@@ -57,5 +57,13 @@ public class Deck {
         }
 // Reset cardsLeft after shuffling
         cardsLeft = cards.size();
+    }
+    public int getSuitIndex(String[] suits, String suit) {
+        for (int i = 0; i < suits.length; i++) {
+            if (suits[i].equals(suit)) {
+                return i;
+            }
+        }
+        return -1; // Suit not found
     }
 }
