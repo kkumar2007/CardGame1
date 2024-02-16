@@ -21,7 +21,6 @@ public class Game {
         // Prompt user for player name and initialize player, dealer, and deck
         System.out.print("Enter player name: ");
         this.player = new Player(scanner.nextLine());
-        state = 1;
         this.dealer = new Player("Dealer");
         this.deck = new Deck(ranks, suits, values);
         this.window = new BlackjackViewer(this);
@@ -29,6 +28,10 @@ public class Game {
     public Player getPlayer()
     {
         return player;
+    }
+    public Player getDealer()
+    {
+        return dealer;
     }
 
     // Method to print game instructions
@@ -58,16 +61,14 @@ public class Game {
                 System.out.println("Invalid input. Please enter 'Y' or 'N'.");
             }
         }
-
+        state = 1;
 
             // Initial deal
             dealCard(player);
-            dealCard(dealer);
-            dealCard(player);
-            dealCard(dealer);
 
             // Player's turn
             playerTurn();
+            dealCard(dealer);
 
             // Dealer's turn
             dealerTurn();
@@ -105,6 +106,7 @@ public class Game {
 
             if (player.getPoints() == 21) {
                 System.out.println("Blackjack! You win!");
+                state = 3;
                 return;
             }
             window.repaint();
@@ -115,6 +117,7 @@ public class Game {
                 dealCard(player);
                 if (player.getPoints() > 21) {
                     System.out.println("Bust! You lose.");
+                    state = 2;
                     return;
                 }
             } else if (choice.equals("s")) {
@@ -129,6 +132,7 @@ public class Game {
     public void dealerTurn() {
         while (dealer.getPoints() < 17) {
             dealCard(dealer);
+            window.repaint();
         }
 
         System.out.println(dealer);
@@ -136,19 +140,25 @@ public class Game {
 
     // Method to determine the winner of the game
     public void determineWinner() {
+
         System.out.println(player);
         System.out.println(dealer);
 
         if (player.getPoints() > 21) {
             System.out.println("Bust! You lose.");
+            state = 2;
         } else if (dealer.getPoints() > 21) {
             System.out.println("Dealer busts! You win!");
+            state = 3;
         } else if (player.getPoints() == dealer.getPoints()) {
             System.out.println("It's a push! Nobody wins.");
+            state = 4;
         } else if (player.getPoints() > dealer.getPoints()) {
             System.out.println("You win!");
+            state = 3;
         } else {
             System.out.println("Dealer wins!");
+            state = 2;
         }
     }
     public int getState()
@@ -168,3 +178,4 @@ public class Game {
         game.playGame();
     }
 }
+
