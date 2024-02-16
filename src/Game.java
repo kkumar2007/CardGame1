@@ -130,12 +130,25 @@ public class Game {
 
     // Method representing the dealer's turn
     public void dealerTurn() {
-        while (dealer.getPoints() < 17) {
-            dealCard(dealer);
+        Scanner scanner = new Scanner(System.in);
+
+        do {
             window.repaint();
-        }
+            System.out.println("Continue:(Y/N) ");
+            String start1 = scanner.nextLine();
+            if (start1.equalsIgnoreCase("Y")) {
+                dealCard(dealer);
+                window.repaint();
+            }
+            else
+            {
+                System.out.println("OK, return when ready: ");
+            }
+        }while (dealer.getPoints() < 17);
 
         System.out.println(dealer);
+        System.out.println("Continue:(Y/N) ");
+        scanner.nextLine();
     }
 
     // Method to determine the winner of the game
@@ -160,6 +173,7 @@ public class Game {
             System.out.println("Dealer wins!");
             state = 2;
         }
+        window.repaint();
     }
     public int getState()
     {
