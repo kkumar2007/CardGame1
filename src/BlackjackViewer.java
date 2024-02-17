@@ -37,30 +37,46 @@ public class BlackjackViewer extends JFrame {
             g.setColor(Color.BLACK);
             int fontSize = 100;
             Font f = new Font("TimesRoman Bold", Font.BOLD, fontSize);
+            g.setFont(f);
             g.drawString(number, 310, 200);
             drawHand(g, game.getDealer().getHand(), 50, 100);
-            fontSize = 20;
-            g.setFont(f);
-            Font l = new Font("TimesRoman Bold", Font.BOLD, fontSize);
-            g.setFont(l);
 
         }
+
         if (game.getState() == 2) {
+            int fontSize = 20;
+            Font l = new Font("TimesRoman Bold", Font.BOLD, fontSize);
+            g.setFont(l);
             g.drawImage(finale, 0, 0, this);
             g.drawString("Sorry! You Lose", 100, 400);
+            fontSize = 10;
+            Font k = new Font("TimesRoman Bold", Font.BOLD, fontSize);
+            g.setFont(k);
             g.drawString(game.getPlayer().toString(), 100, 600);
             g.drawString(game.getDealer().toString(), 100, 700);
 
         }
         if (game.getState() == 3) {
+            int fontSize = 20;
+            Font l = new Font("TimesRoman Bold", Font.BOLD, fontSize);
+            g.setFont(l);
             g.drawImage(finale, 0, 0, this);
             g.drawString("Congrats, You Won!", 100, 400);
+            fontSize = 10;
+            Font k = new Font("TimesRoman Bold", Font.BOLD, fontSize);
+            g.setFont(k);
             g.drawString(game.getPlayer().toString(), 100, 600);
             g.drawString(game.getDealer().toString(), 100, 700);
         }
         if (game.getState() == 4) {
+            int fontSize = 20;
+            Font l = new Font("TimesRoman Bold", Font.BOLD, fontSize);
+            g.setFont(l);
             g.drawImage(finale, 0, 0, this);
             g.drawString("It's a tie!", 100, 400);
+            fontSize = 10;
+            Font k = new Font("TimesRoman Bold", Font.BOLD, fontSize);
+            g.setFont(k);
             g.drawString(game.getPlayer().toString(), 100, 600);
             g.drawString(game.getDealer().toString(), 100, 700);
         }

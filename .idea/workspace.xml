@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="525776a3-98e8-4516-a1d4-11949c96fcea" name="Changes" comment="finished some">
-      <change afterPath="$PROJECT_DIR$/Resources/Cards/End.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Cards/Start.png" afterDir="false" />
+    <list default="true" id="525776a3-98e8-4516-a1d4-11949c96fcea" name="Changes" comment="I fized the user input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BlackjackViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlackjackViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708070578417</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="I fized the user input">
+      <option name="closed" value="true" />
+      <created>1708119486455</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708119486455</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -137,6 +142,7 @@
     <MESSAGE value="I finished all the classes and just need to add instructions." />
     <MESSAGE value="I finished all the code." />
     <MESSAGE value="finished some" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished some" />
+    <MESSAGE value="I fized the user input" />
+    <option name="LAST_COMMIT_MESSAGE" value="I fized the user input" />
   </component>
 </project>
